@@ -1,0 +1,54 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
+  <title>AI Chat Bot</title>
+  <link rel="stylesheet" href="style.css"/>
+</head>    
+<body>
+  <div class="chat-wrapper">
+    <div class="chat-container" id="chatContainer">
+      <!-- AI Message -->
+      <div class="message-row ai">
+        <div class="avatar">
+          <img src="download.jpg" alt="AI avatar">
+        </div>
+        <div class="bubble ai">Hello! I'm AI — how can I help today?</div>
+      </div>
+    </div>
+
+    <!-- Typing Row -->
+    <div id="typingRow" class="message-row ai" style="display:none;">
+      <div class="avatar">
+        <img src="download.jpg" alt="AI avatar">
+      </div>
+      <div class="bubble ai typing">
+        <div class="typing-indicator">
+          <span class="dot"></span><span class="dot"></span><span class="dot"></span>
+        </div>
+      </div>
+    </div>
+
+    <!-- Input / Composer -->
+    <div class="composer">
+      <input id="userInput" type="text" placeholder="Type a message..." />
+      <div class="icons">
+        <!-- Image Upload Button -->
+        <input type="file" id="imageInput" accept="image/*" style="display:none;">
+        <button class="icon-btn" id="imageBtn" title="Attach image">📷</button>
+
+        <!-- Send Button -->
+        <button class="icon-btn send-btn" id="sendBtn" title="Send message">
+          <svg xmlns="http://www.w3.org/2000/svg" height="22" width="22" viewBox="0 0 24 24" fill="#4cafef">
+            <path d="M0 0h24v24H0z" fill="none"/>
+            <path d="M2.01 21L23 12 2.01 3 2 10l15 2-15 2z"/>
+          </svg>
+        </button>
+      </div>
+    </div>
+  </div>
+
+  <script src="script.js" defer></script>
+</body>
+</html>
