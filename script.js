@@ -1,7 +1,3 @@
-// Yeh variables build tool ya server se inject honge
-const API_KEY = process.env.API_KEY;
-const API_URL = process.env.GEMINI_API_URL;
-
 const inputField = document.getElementById("userInput");
 const sendButton = document.getElementById("sendBtn");
 const chatContainer = document.getElementById("chatContainer");
@@ -14,10 +10,8 @@ let uploadedImageBase64 = null;
 sendButton.addEventListener("click", sendMessage);
 inputField.addEventListener("keypress", e => { if (e.key === "Enter") sendMessage(); });
 
-// Open gallery
 imageBtn.addEventListener("click", () => imageInput.click());
 
-// Handle image selection
 imageInput.addEventListener("change", e => {
     const file = e.target.files[0];
     if (!file) return;
@@ -64,7 +58,7 @@ async function sendMessage() {
     }
 
     try {
-        const res = await fetch(`${API_URL}?key=${API_KEY}`, {
+        const res = await fetch("http://localhost:3000/api/chat", {
             method: "POST",
             headers: { "Content-Type": "application/json" },
             body: JSON.stringify(body)
