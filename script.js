@@ -1,3 +1,5 @@
+const API_KEY = "AIzaSyC62lW7zT2HDxK6RWgt8rBLB-cvvzszJUM";
+
 const inputField = document.getElementById("userInput");
 const sendButton = document.getElementById("sendBtn");
 const chatContainer = document.getElementById("chatContainer");
@@ -10,8 +12,10 @@ let uploadedImageBase64 = null;
 sendButton.addEventListener("click", sendMessage);
 inputField.addEventListener("keypress", e => { if (e.key === "Enter") sendMessage(); });
 
+// Open gallery
 imageBtn.addEventListener("click", () => imageInput.click());
 
+// Handle image selection
 imageInput.addEventListener("change", e => {
     const file = e.target.files[0];
     if (!file) return;
@@ -58,7 +62,7 @@ async function sendMessage() {
     }
 
     try {
-        const res = await fetch("http://localhost:3000/api/chat", {
+        const res = await fetch(`https://generativelanguage.googleapis.com/v1beta/models/gemini-2.5-flash:generateContent?key=${API_KEY}`, {
             method: "POST",
             headers: { "Content-Type": "application/json" },
             body: JSON.stringify(body)
